@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POC</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href='{% static "map_creation/map_creation.css" %}'>
+    
+
+    <style type="text/css">
+    </style>
+  </head>
+  <body id="myCanvas">
+    <main>
+      <section>
+        <div id="image-container">
+          <img
+            id="image"
+            class="default-img"
+            src={{ image }}
+            alt="subject"
+          />
+          <canvas id="overlay-canvas"></canvas>
+        </div>
+      </section>
+      <div>
+        <input
+          type="file"
+          accept="image/*"
+          id="image-selector"
+          onchange="handleImageSelect(this)"
+        />
+        
+        <label class="button" for="image-selector">select image</label>
+        <div class="button" for="image-selector" onclick="resetPoints()">
+          Reset Points
+        </div>
+      </div>
+    </main>
+    <aside>
+      <div>
+        <ul>
+          <p id="instruction"></p>
+        </ul>
+
+        <br />
+        <br />
+        <ul>
+          <li><span>Mouse X:</span><span id="value-mouse-x"></span></li>
+          <li><span>Mouse Y:</span><span id="value-mouse-y"></span></li>
+        </ul>
+        <br />
+        <br />
+
+        <ul>
+          <li>
+            <span>Point A:</span>
+            <span id="value-point-a-x"></span>,
+            <span id="value-point-a-y"></span>
+          </li>
+          <li>
+            <span>Point B:</span>
+            <span id="value-point-b-x"></span>,
+            <span id="value-point-b-y"></span>
+          </li>
+          <li>
+            <span>Point C:</span>
+            <span id="value-point-c-x"></span>,
+            <span id="value-point-c-y"></span>
+          </li>
+          <li>
+            <span>Point D:</span>
+            <span id="value-point-d-x"></span>,
+            <span id="value-point-d-y"></span>
+          </li>
+          <li>
+          </li>
+
+        </ul>
+      </div>
+        <label for="full">Select Type</label>
+
+			<select name="map" id="map">
+			  <option value="Full">Full</option>
+			  <option value="Plot">Plot</option>
+			  <option value="Road">Road</option>
+			  <option value="Other">Other</option>
+			</select>
+
+
+			<button id="submit" class="button">Add</button>
+    </aside>
+    <script src='{% static "map_creation/map_creation.js" %}'></script>
+    <script src='{% static "map_creation/map_submit.js" %}'></script>
+    
+  </body>
+</html>

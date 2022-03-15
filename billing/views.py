@@ -5,6 +5,10 @@ from django.views.generic.base import View
 # Create your views here.
 
 
+def get_id(request):
+	return render(request,'new_index.html')
+
+
 class Home(IsMapperMixin,View):
 	template_name="map_creation.html"
 

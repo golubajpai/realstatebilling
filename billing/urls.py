@@ -1,9 +1,9 @@
 from django.urls import path,include
-from .views import Home
+from .views import Home,get_id
 from django.contrib import admin
 
 urlpatterns = [
-    path('',Home.as_view(), name="home"),
-    path('admin/', admin.site.urls,name='admin'),
+    path('',get_id, name="home"),
+    path('admin/',get_id,name='admin'),
 
 ]
